@@ -14,6 +14,7 @@ import TopHomeFood from "../Components/TopHomeFood";
 import TopRestaurants from "../Components/TopRestaurants.jsx";
 import BecomeAPartner from "../Components/BecomeAPartner.jsx";
 import FoodOffers from "../Components/FoodOffers.jsx";
+import TopChefs from "../Components/TopChefs.jsx";
 
 export default function Homepage() {
   return (
@@ -128,6 +129,7 @@ export default function Homepage() {
       <TopRestaurants />
       <BecomeAPartner />
       <FoodOffers />
+      <TopChefs />
     </div>
   );
 }
