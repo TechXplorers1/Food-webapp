@@ -12,6 +12,8 @@ import "./Homepage.css";
 import FeaturesSection from "../Components/Featurespage";
 import TopHomeFood from "../Components/TopHomeFood";
 import TopRestaurants from "../Components/TopRestaurants.jsx";
+import BecomeAPartner from "../Components/BecomeAPartner.jsx";
+import FoodOffers from "../Components/FoodOffers.jsx";
 
 export default function Homepage() {
   return (
@@ -124,6 +126,8 @@ export default function Homepage() {
       <FeaturesSection />
       <TopHomeFood />
       <TopRestaurants />
+      <BecomeAPartner />
+      <FoodOffers />
     </div>
   );
 }

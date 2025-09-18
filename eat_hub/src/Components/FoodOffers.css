@@ -1,0 +1,56 @@
+.food-offers-section {
+  background-color: #f9f9f9;
+  padding: 1rem;
+}
+
+/* Orange Background */
+.bg-orange {
+  background-color: #e64a19;
+}
+
+/* Text Color for Orange Background */
+.text-orange {
+  color: #e64a19;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .food-offers-section {
+    padding: 0.5rem;
+  }
+
+  .row.g-2 > .col-md-4 {
+    margin-bottom: 1rem;
+  }
+
+  .bg-orange h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Image Styling */
+.img-fluid {
+  transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+  transform: scale(1.02);
+}
+
+/* Badge Style */
+.position-absolute.top-0.end-0 {
+  z-index: 10;
+}
+
+/* Fix text wrap in badge */
+.rounded-circle {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* Ensure proper spacing */
+.row.g-3 > .col-6 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}

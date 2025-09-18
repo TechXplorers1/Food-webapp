@@ -1,0 +1,63 @@
+.become-partner-section {
+  background-color: #f9f9f9;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Card Styling */
+.partner-card {
+  transition: all 0.3s ease;
+  background-color: white;
+  border: 1px solid #e9ecef;
+  height: 100%; /* Ensures cards stretch to same height in row */
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Container */
+.icon-container {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+/* Orange Button */
+.btn-orange {
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-orange:hover {
+  background-color: #c04a00;
+}
+
+/* Light Orange Background */
+.bg-light-orange {
+  background-color: #fdd5b1;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .partner-card {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-orange {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Text styles */
+.text-muted {
+  color: #6c757d;
+}
