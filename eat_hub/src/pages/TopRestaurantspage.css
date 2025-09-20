@@ -1,0 +1,82 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+/* Navbar */
+        .custom-navbar {
+            position: relative;   /* scrolls with page */
+            z-index: 1000;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: auto;
+        }
+
+        /* Updated nav link styles with black color */
+        .navbar-nav .nav-link.nav-link-custom {
+            color: #000 !important;  /* Changed to black */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link.nav-link-custom:hover {
+            color: #ff7b00 !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 75vh; /* bigger hero */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 3rem 1rem;
+        }
+        .hero-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* soft dark mask */
+        }
+        .hero-section .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Jollof Rice Cards */
+        .jollof-card {
+            height: 280px;
+        }
+        .jollof-card img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .jollof-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            padding: 1rem;
+            text-align: left;
+        }
+        .jollof-overlay h5 {
+            margin: 0 0 5px 0;
+        }
+        .jollof-overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .jollof-overlay span {
+            color: #ff7b00;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer-orange {
+            background-color: #cc5500;
+            text-align: left;
+        }

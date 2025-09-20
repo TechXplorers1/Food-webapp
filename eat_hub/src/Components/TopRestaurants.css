@@ -4,12 +4,14 @@
   padding-bottom: 2rem;
 }
 
-/* Scroll Container — Full Width */
+/* Scroll Container — 90% Width */
 .card-scroll-container {
   position: relative;
   overflow: hidden;
   padding: 1rem 0;
   background: transparent;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .card-scroll-content {
@@ -56,10 +58,8 @@
   margin-right: 0.5rem;
 }
 
-/* Card Item — INCREASED HEIGHT */
+/* Card Item — Responsive Width */
 .card-item {
-  min-width: 280px;
-  max-width: 280px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -146,26 +146,6 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-/* HOT Badge (replaces Rating) */
-.rating-badge-container {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.badge {
-  font-size: 0.7rem;
-  background: #dc3545;
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 20px;
-  line-height: 1;
-}
-
 /* Heart Icon — WHITE BACKGROUND + OUTLINE DESIGN */
 .heart-icon {
   z-index: 4;
@@ -203,10 +183,28 @@
 }
 
 /* Responsive Design */
-@media (max-width: 576px) {
+@media (max-width: 1200px) {
   .card-item {
-    min-width: 240px;
-    max-width: 240px;
+    min-width: calc((100% - (1rem * 2)) / 3 - 1px) !important;
+    max-width: calc((100% - (1rem * 2)) / 3 - 1px) !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .card-item {
+    min-width: calc((100% - 1rem) / 2 - 1px) !important;
+    max-width: calc((100% - 1rem) / 2 - 1px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-scroll-container {
+    width: 95%;
+  }
+  
+  .card-item {
+    min-width: calc(100% - 1px) !important;
+    max-width: calc(100% - 1px) !important;
     height: 320px;
   }
 
@@ -234,4 +232,22 @@
   .card-scroll-container {
     padding: 0.5rem 0;
   }
+}
+
+.view-all-link {
+  color: #e56f00 !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+  color: #ff7b00 !important;
+  text-decoration: underline;
+}
+
+/* Optional: Add cursor pointer for better UX */
+.view-all-link:focus,
+.view-all-link:hover {
+  cursor: pointer;
 }

@@ -1,18 +1,117 @@
-/* Layout */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Section Styling */
 .top-chefs-section {
   background-color: #f9f9f9;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-/* Card Item */
+/* ➤ 90% WIDTH CENTERED WRAPPER — UPDATED FROM 80% */
+.section-centered-wrapper {
+  width: 90%; /* ✅ Changed to 90% */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Scroll Container */
+.card-scroll-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  background: transparent;
+}
+
+.card-scroll-content {
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.card-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-btn:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+.left-btn {
+  margin-left: 0.5rem;
+}
+
+.right-btn {
+  margin-right: 0.5rem;
+}
+
+/* ➤ Card Item — Responsive Widths for 1,2,3,4,5 full cards */
 .card-item {
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* Default: Mobile — 1 card */
+.card-item {
+  min-width: 280px;
+  max-width: 280px;
+}
+
+/* 2 Cards */
+@media (min-width: 600px) {
+  .card-item {
+    min-width: calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+  }
+}
+
+/* 3 Cards */
+@media (min-width: 900px) {
+  .card-item {
+    min-width: calc(33.333% - 0.66rem);
+    max-width: calc(33.333% - 0.66rem);
+  }
+}
+
+/* 4 Cards */
+@media (min-width: 1200px) {
+  .card-item {
+    min-width: calc(25% - 0.75rem);
+    max-width: calc(25% - 0.75rem);
+  }
+}
+
+/* 5 Cards — Large Desktop */
+@media (min-width: 1500px) {
+  .card-item {
+    min-width: calc(20% - 0.8rem);
+    max-width: calc(20% - 0.8rem);
+  }
 }
 
 .card-item:hover {
@@ -20,13 +119,26 @@ html, body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Image */
+/* Image Container */
+.card-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* Overlay */
 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.85) 0%,
@@ -36,8 +148,13 @@ html, body {
   z-index: 2;
 }
 
-/* Title, Subtitle, Description */
 .image-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: #fff;
   z-index: 3;
   text-align: left;
 }
@@ -64,20 +181,6 @@ html, body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-/* HOT Badge */
-.rating-badge-container {
-  z-index: 3;
-  gap: 0.3rem;
-}
-
-.badge {
-  font-size: 0.7rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 20px;
-  line-height: 1;
-}
-
-/* Heart Icon */
 .heart-icon {
   z-index: 4;
   cursor: pointer;
@@ -97,40 +200,15 @@ html, body {
   background: #f8f9fa;
 }
 
-/* View All Link */
-.view-all-link {
-  color: #e67e22;
-  text-decoration: none;
-  font-weight: 600;
+.heart-icon svg {
+  transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
-.view-all-link:hover {
-  color: #d35400;
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  background-color: #e64a19;
-  flex-shrink: 0; /* Prevents footer from shrinking */
-}
-
-footer p {
-  margin: 0;
-}
-
-.social-icons i {
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-
-.social-icons i:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive */
+/* Smaller on very small screens */
 @media (max-width: 576px) {
   .card-item {
+    min-width: 240px;
+    max-width: 240px;
     height: 320px;
   }
 
@@ -142,7 +220,20 @@ footer p {
     font-size: 0.8rem;
   }
 
-  .image-content .card-text {
-    font-size: 0.75rem;
+  .scroll-btn {
+    width: 36px;
+    height: 36px;
   }
+}
+
+/* View All Link */
+.view-all-link {
+  color: #f9861a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.view-all-link:hover {
+  color: #ff7b00;
+  text-decoration: underline;
 }

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ ADDED FOR NAVIGATION
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./TopRestaurants.css";
 
@@ -7,7 +8,9 @@ import Chicken from "../assets/chickenpiece.png";
 import GreenChilliChicken from "../assets/greenchillichicken.png";
 
 export default function TopRestaurants() {
+  const navigate = useNavigate(); // ✅ Initialize navigation
   const [favorites, setFavorites] = useState({});
+  const [visibleCards, setVisibleCards] = useState(4); // Default for large screens
   const scrollRef = useRef(null);
 
   // Restaurant data
@@ -24,6 +27,25 @@ export default function TopRestaurants() {
     { id: 10, name: "Kiln", cuisine: "Thai Claypot", price: "$42", image: Chicken },
   ];
 
+  // Set number of visible cards based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setVisibleCards(4); // XL screens and above - 4 cards
+      } else if (window.innerWidth >= 992) {
+        setVisibleCards(3); // LG screens
+      } else if (window.innerWidth >= 768) {
+        setVisibleCards(2); // MD screens
+      } else {
+        setVisibleCards(1); // SM/XS screens
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Toggle favorite status
   const toggleFavorite = (id) => {
     setFavorites((prev) => ({
@@ -35,7 +57,11 @@ export default function TopRestaurants() {
   // Handle scroll navigation
   const handleScroll = (direction) => {
     const scrollContainer = scrollRef.current;
-    const scrollAmount = 300;
+    if (!scrollContainer) return;
+    
+    const cardWidth = scrollContainer.querySelector('.card-item')?.offsetWidth || 280;
+    const gap = 16; // 1rem gap
+    const scrollAmount = (cardWidth + gap) * visibleCards;
 
     if (direction === "left") {
       scrollContainer.scrollBy({
@@ -50,6 +76,11 @@ export default function TopRestaurants() {
     }
   };
 
+  // ✅ Handle View All Click — Navigate to Top Restaurants Page
+  const handleViewAll = () => {
+    navigate("/top-restaurants");
+  };
+
   return (
     <section className="top-restaurants-section py-5">
       <div className="container-fluid px-0">
@@ -59,14 +90,19 @@ export default function TopRestaurants() {
             <h2 className="fw-bold">Top Restaurants</h2>
           </div>
           <div className="col-auto">
-            <a href="#" className="view-all-link fw-medium">
+            <button 
+              onClick={handleViewAll}
+              className="view-all-link fw-medium btn btn-link p-0 text-decoration-none"
+              style={{ color: "#e56f00" }}
+              aria-label="View all restaurants"
+            >
               View All
-            </a>
+            </button>
           </div>
         </div>
 
         {/* Horizontal Scroll Container */}
-        <div className="card-scroll-container position-relative overflow-hidden">
+        <div className="card-scroll-container position-relative overflow-hidden mx-auto" style={{ width: '90%' }}>
           {/* Left Arrow Button */}
           <button
             className="scroll-btn left-btn position-absolute top-50 start-0 translate-middle-y bg-white border-0 shadow-sm"
@@ -112,7 +148,15 @@ export default function TopRestaurants() {
           {/* Scrollable Cards */}
           <div className="card-scroll-content d-flex gap-3 px-3" ref={scrollRef}>
             {restaurants.map((restaurant) => (
-              <div key={restaurant.id} className="card-item flex-shrink-0">
+              <div 
+                key={restaurant.id} 
+                className="card-item flex-shrink-0"
+                style={{ 
+                  '--visible-cards': visibleCards,
+                  minWidth: `calc((100% - (1rem * ${visibleCards - 1})) / ${visibleCards} - 1px)`,
+                  maxWidth: `calc((100% - (1rem * ${visibleCards - 1})) / ${visibleCards} - 1px)`
+                }}
+              >
                 <div className="card-img-container position-relative">
                   {/* Image */}
                   <img

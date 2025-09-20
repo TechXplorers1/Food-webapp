@@ -70,18 +70,17 @@ header .btn-outline-dark {
 
 /* Left Content - Text */
 .left-content .hero-title {
-  font-size: 2.1rem; /* ✅ Decreased from 2.5rem */
+  font-size: 2.1rem;
   font-weight: 700;
   line-height: 1.2;
   color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
-/* Optional: Slightly increase subtitle spacing if needed */
 .left-content .hero-subtitle {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 2rem; /* ✅ Increased from 1.5rem for more breathing room */
+  margin-bottom: 2rem;
   line-height: 1.6;
 }
 
@@ -134,14 +133,7 @@ header .btn-outline-dark {
   object-fit: cover;
 }
 
-/* Floating Dishes Container */
-.floating-dishes {
-  width: 350px;
-  height: 120px;
-  position: relative;
-  margin-top: -30px;
-}
-
+/* Floating Dishes */
 .floating-dish {
   position: absolute;
   width: 65px;
@@ -162,7 +154,15 @@ header .btn-outline-dark {
   z-index: 10;
 }
 
-/* New U-Shaped Positions (Tight Arc Around Bottom) */
+.floating-dish img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Floating Dish Positions */
 .dish-top-left {
   top: -25px;
   left: -15px;
@@ -189,29 +189,29 @@ header .btn-outline-dark {
   right: -15px;
 }
 
-/* Critical Fix: Ensure Image Fills Container */
-.floating-dish img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
-/* Search Section */
+/* ➤ UPDATED: Search Section — Thicker Border, Smaller Radius */
 .search-section {
   padding: 2rem 0;
   background: transparent;
 }
 
 .input-group {
-  border-radius: 50px;
-  border: 1px solid #ddd;
+  border-radius: 12px; /* ✅ Decreased from 50px */
+  border: 1px solid #000; /* ✅ Increased from 1px */
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group:focus-within {
+  border-color: #ff7b00;
+  box-shadow: 0 0 0 3px rgba(255, 123, 0, 0.2);
 }
 
 .input-group input {
   font-weight: 500;
   font-size: 1rem;
+  border: none;
 }
 
 .input-group-text {
@@ -252,12 +252,6 @@ header .btn-outline-dark {
     height: 220px;
   }
 
-  .floating-dishes {
-    width: 280px;
-    height: 100px;
-    margin-top: -20px;
-  }
-
   .floating-dish {
     width: 50px;
     height: 50px;
@@ -271,5 +265,77 @@ header .btn-outline-dark {
 
   .search-section {
     padding: 1rem 0;
+  }
+
+  .input-group {
+    border-radius: 8px;
+  }
+}
+
+/* ==================== */
+/*   IMPROVED FOOTER    */
+/* ==================== */
+
+.footer-ribbon {
+  background-color: #ff7b00;
+  color: white;
+  padding: 1rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-copyright {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  font-size: 1.3rem;
+  color: white !important;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-ribbon {
+    padding: 0.8rem 0;
+  }
+
+  .footer-copyright {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .social-icons {
+    gap: 1rem;
+    justify-content: center !important;
+  }
+
+  .social-icon {
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
   }
 }

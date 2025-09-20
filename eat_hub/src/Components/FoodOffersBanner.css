@@ -1,0 +1,24 @@
+/* FoodOffersBanner.css */
+
+.food-offers-image-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.food-offers-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Optional: Set min-height for banner */
+.food-offers-image-container img {
+  min-height: 300px;
+  max-height: 500px;
+  object-fit: cover;
+}

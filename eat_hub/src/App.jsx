@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage.jsx";
-import FeaturesSection from "./Components/Featurespage.jsx";
+import TopRestaurantsPage from "./pages/TopRestaurantspage.jsx";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/features" element={<FeaturesSection />} />
+      <Route path="/top-restaurants" element={<TopRestaurantsPage />} />
     </Routes>
   );
 }
