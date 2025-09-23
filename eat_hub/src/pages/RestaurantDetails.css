@@ -1,0 +1,242 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+/* ===== General Page ===== */
+.restaurant-details-page {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 12px;
+}
+
+/* ===== Restaurant Header ===== */
+.restaurant-header {
+  display: flex;
+  align-items: center;       /* 🔑 vertical center within header */
+  justify-content: space-between;
+  /* gap: 3rem; */
+  width: 80%;                /* adjust width as needed */
+  max-width: 1200px;
+  margin: 5vh auto;          /* vertical spacing from top & bottom using viewport */
+  /* background-color: green;    */
+  padding: 2rem;
+  border-radius: 12px;       /* optional visual improvement */
+}
+
+/* ===== Left Image Box (optional adjustment) ===== */
+.restaurant-header .restaurant-image {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+.restaurant-header .restaurant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Right Card Box ===== */
+.card-info-box {
+  flex: 0 0 55%;             /* 🔑 increase width from 40% to 55% */
+  background: white;
+  border: 1px solid #f97316;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-info-box h3 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.card-info-box .text-muted {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+.card-info-box .fa-star {
+  font-size: 1rem;
+  margin-left: 0.2rem;
+  color: #facc15; /* yellow color for the star */
+}
+
+
+/* ===== Verified Badge (outlined) ===== */
+.badge-outline {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  background: #fff;
+  padding: 0.25em 0.6em;
+  border-radius: 50rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ===== About Section ===== */
+.about-section {
+  background-color: #f97316; /* dark orange */
+  color: white;              /* text white */
+  border-radius: 12px;       /* section border radius */
+  padding: 2rem;
+  min-height: 50%;         /* reduced height */
+  width: 90%;                /* 90% width */
+  margin: 0 auto 2rem auto;  /* center horizontally with bottom margin */
+  position: relative;        /* needed for QR overflow */
+}
+
+.about-section h5 {
+  color: white;
+}
+
+.about-section p {
+  color: white;
+}
+
+/* ===== QR Placeholder ===== */
+.about-section .qr-placeholder {
+  width: 25%;                   /* bigger size */
+  height: 140px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 12px;   /* only top corners rounded */
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: absolute;             /* allow overflow */
+  top: -50px;                     /* overflow top */
+  right: 20px;
+  border-radius: 10px;
+}
+
+
+/* ===== Menu Cards ===== */
+.menu-card {
+  position: relative;
+  border: none;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card img.card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.menu-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+}
+
+.menu-card .play-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+  font-size: 14px;
+  border-radius: 50%;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.menu-card h6,
+.menu-card p {
+  color: white;
+  margin: 0;
+}
+
+/* ===== Full Width Banner ===== */
+.full-width-banner {
+  width: 100%;
+}
+
+/* ===== Footer ===== */
+.footer-ribbon {
+  width: 100%;
+  background: #f97316;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-ribbon .social-icons a {
+  font-size: 16px;
+  margin: 0 8px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-ribbon .social-icons a:hover {
+  color: #fff;
+}
+
+.footer-ribbon .image-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 10px;
+  display: inline-block;
+}
+
+/* ===== Navbar ===== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  padding: 0 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .restaurant-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .restaurant-header .restaurant-image {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .card-info-box {
+    flex: 1;
+    width: 100%;
+  }
+
+  .footer-ribbon .image-circle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .restaurant-header .restaurant-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .card-info-box {
+    flex: 0 0 50%;
+  }
+}

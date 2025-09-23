@@ -13,7 +13,7 @@ import Dish1 from "../assets/dish1.png";
 import Dish2 from "../assets/dish2.png";
 import Dish3 from "../assets/dish3.png";
 
-export default function HomePage() {
+export default function TopRestaurantsPage() {
   return (
     <div className="homepage">
 
