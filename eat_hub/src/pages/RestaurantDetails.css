@@ -1,6 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+.btn {
+  font-size: 0.95rem;
+}
+
 /* ===== General Page ===== */
 .restaurant-details-page {
   background-color: #fff;
@@ -142,13 +146,14 @@
 
 /* ===== Horizontal Carousel Containers ===== */
 .section-carousel-container {
-  width: 90%; /* Updated to 90% */
+  width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 
 .menu-carousel {
   scroll-behavior: smooth;
-  padding: 0 10px;
+  padding: 0 44px; /* Space for arrows (44px = button width) */
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
@@ -167,16 +172,39 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.carousel-arrow {
-  width: 40px;
-  height: 40px;
-  font-size: 1rem;
-  border: 2px solid #fff;
-  color: #fff;
+/* ===== Carousel Navigation Buttons ===== */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
 }
 
-.carousel-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
+.carousel-nav-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav-left {
+  left: 0;
+}
+
+.carousel-nav-right {
+  right: 0;
 }
 
 /* ===== Footer ===== */
@@ -261,8 +289,13 @@
   }
 
   .menu-card {
-    width: 240px !important;
     height: 320px !important;
+  }
+
+  .carousel-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 
   .footer-ribbon {
@@ -297,7 +330,6 @@
   }
 
   .menu-card {
-    width: 260px !important;
     height: 340px !important;
   }
 }

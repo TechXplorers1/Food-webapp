@@ -1,5 +1,5 @@
 // src/pages/RestaurantDetails.js
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./RestaurantDetails.css";
 
@@ -18,6 +18,7 @@ import QRCodeGenerator from "../assets/QR_Code_Sample.png";
 
 export default function RestaurantDetails() {
   const { id } = useParams();
+  const [cardWidth, setCardWidth] = useState(300); // Default desktop width
 
   const menuItems = [
     { name: "Ikoyi", price: "$20", desc: "Delicious Chinese Dish", img: dish1 },
@@ -35,12 +36,31 @@ export default function RestaurantDetails() {
   const scrollRef1 = useRef(null);
   const scrollRef2 = useRef(null);
 
+  // Update card width based on screen size
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (window.innerWidth >= 1200) {
+        setCardWidth(300);
+      } else if (window.innerWidth >= 992) {
+        setCardWidth(280);
+      } else if (window.innerWidth >= 768) {
+        setCardWidth(260);
+      } else {
+        setCardWidth(240);
+      }
+    };
+
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
+
   const scrollLeft = (ref) => {
-    ref.current.scrollBy({ left: -300, behavior: 'smooth' });
+    ref.current.scrollBy({ left: -cardWidth - 24, behavior: 'smooth' }); // 24px = gap
   };
 
   const scrollRight = (ref) => {
-    ref.current.scrollBy({ left: 300, behavior: 'smooth' });
+    ref.current.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
   };
 
   return (
@@ -69,7 +89,7 @@ export default function RestaurantDetails() {
             </a>
           </nav>
 
-          <button className="btn btn-dark btn-sm">Sign in</button>
+          <button className="btn btn-sm">Sign in</button>
         </div>
       </header>
 
@@ -147,26 +167,18 @@ export default function RestaurantDetails() {
       </div>
 
       {/* ===== Top Popular Items (Horizontal Carousel) ===== */}
-      <div className="section-carousel-container px-3 mb-5">
+      <div className="section-carousel-container px-3 mb-5 position-relative">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h4 className="fw-bold fs-3">Top Popular Items</h4>
-          <div className="carousel-controls d-flex gap-2">
-            <button
-              className="carousel-arrow btn btn-outline-light rounded-circle"
-              onClick={() => scrollLeft(scrollRef1)}
-              aria-label="Scroll Left"
-            >
-              <i className="fas fa-chevron-left"></i>
-            </button>
-            <button
-              className="carousel-arrow btn btn-outline-light rounded-circle"
-              onClick={() => scrollRight(scrollRef1)}
-              aria-label="Scroll Right"
-            >
-              <i className="fas fa-chevron-right"></i>
-            </button>
-          </div>
         </div>
+
+        <button
+          className="carousel-nav-btn carousel-nav-left"
+          onClick={() => scrollLeft(scrollRef1)}
+          aria-label="Scroll Left"
+        >
+          <i className="fas fa-chevron-left"></i>
+        </button>
 
         <div
           className="menu-carousel d-flex gap-3 overflow-x-auto pb-3"
@@ -176,7 +188,7 @@ export default function RestaurantDetails() {
             <div
               key={index}
               className="menu-card card border-0 rounded-3 shadow-sm position-relative flex-shrink-0"
-              style={{ width: "280px", height: "360px" }}
+              style={{ width: `${cardWidth}px`, height: "360px" }}
             >
               <div className="position-relative w-100 h-100">
                 <img
@@ -219,29 +231,29 @@ export default function RestaurantDetails() {
             </div>
           ))}
         </div>
+
+        <button
+          className="carousel-nav-btn carousel-nav-right"
+          onClick={() => scrollRight(scrollRef1)}
+          aria-label="Scroll Right"
+        >
+          <i className="fas fa-chevron-right"></i>
+        </button>
       </div>
 
       {/* ===== Our Menu Items (Horizontal Carousel) ===== */}
-      <div className="section-carousel-container px-3 mb-5">
+      <div className="section-carousel-container px-3 mb-5 position-relative">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h4 className="fw-bold fs-3">Our Menu Items</h4>
-          <div className="carousel-controls d-flex gap-2">
-            <button
-              className="carousel-arrow btn btn-outline-light rounded-circle"
-              onClick={() => scrollLeft(scrollRef2)}
-              aria-label="Scroll Left"
-            >
-              <i className="fas fa-chevron-left"></i>
-            </button>
-            <button
-              className="carousel-arrow btn btn-outline-light rounded-circle"
-              onClick={() => scrollRight(scrollRef2)}
-              aria-label="Scroll Right"
-            >
-              <i className="fas fa-chevron-right"></i>
-            </button>
-          </div>
         </div>
+
+        <button
+          className="carousel-nav-btn carousel-nav-left"
+          onClick={() => scrollLeft(scrollRef2)}
+          aria-label="Scroll Left"
+        >
+          <i className="fas fa-chevron-left"></i>
+        </button>
 
         <div
           className="menu-carousel d-flex gap-3 overflow-x-auto pb-3"
@@ -251,7 +263,7 @@ export default function RestaurantDetails() {
             <div
               key={index}
               className="menu-card card border-0 rounded-3 shadow-sm position-relative flex-shrink-0"
-              style={{ width: "280px", height: "360px" }}
+              style={{ width: `${cardWidth}px`, height: "360px" }}
             >
               <div className="position-relative w-100 h-100">
                 <img
@@ -294,6 +306,14 @@ export default function RestaurantDetails() {
             </div>
           ))}
         </div>
+
+        <button
+          className="carousel-nav-btn carousel-nav-right"
+          onClick={() => scrollRight(scrollRef2)}
+          aria-label="Scroll Right"
+        >
+          <i className="fas fa-chevron-right"></i>
+        </button>
       </div>
 
       {/* ===== Food Offers Banner ===== */}
@@ -324,7 +344,7 @@ export default function RestaurantDetails() {
                   <i className="fab fa-instagram"></i>
                 </a>
                 <a href="#" className="text-white social-icon" aria-label="X (Twitter)">
-                  <i className="fab fa-x-twitter">X</i>
+                  <i className="fab fa-x-twitter"></i>
                 </a>
               </div>
             </div>

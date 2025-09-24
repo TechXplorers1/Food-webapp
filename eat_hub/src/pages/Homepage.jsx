@@ -37,7 +37,7 @@ export default function Homepage() {
           </nav>
 
 
-          <button className="btn btn-outline-dark btn-sm">Sign in</button>
+          <button className="btn  btn-sm">Sign in</button>
         </div>
       </header>
 
