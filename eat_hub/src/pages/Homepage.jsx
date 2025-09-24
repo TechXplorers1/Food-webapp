@@ -157,7 +157,7 @@ export default function Homepage() {
                   aria-label="X (Twitter)"
                   title="Follow us on X"
                 >
-                  <i className="fab fa-x-twitter"></i>
+                  <i className="fab fa-x-twitter">X</i>
                 </a>
               </div>
             </div>
