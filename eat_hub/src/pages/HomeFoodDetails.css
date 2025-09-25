@@ -1,0 +1,233 @@
+/* ===== Home Food Header Section ===== */
+.homefood-header {
+  display: flex;
+  align-items: center;       /* Vertically center image + info */
+  gap: 20px;                 /* Spacing between image and card */
+  padding: 20px;
+  max-width: 900px;          /* Keeps content from stretching too wide */
+  margin: 30px auto;         /* Center horizontally */
+}
+
+/* Circular Image */
+.homefood-image {
+  flex: 0 0 200px;           /* Fixed width for circle */
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.homefood-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Info Card */
+.card-info-box {
+  flex: 1;                   /* Take remaining width */
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* Verified Badge */
+.verified-badge-container {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.badge-outline {
+  border: 1px solid #007bff;
+  color: #007bff;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+/* Rating Style */
+.rating-container {
+  font-size: 1rem;
+  color: #333;
+}
+
+.rating-container .fa-star {
+  color: #f4c430;
+  margin-left: 4px;
+}
+
+/* ===== Home Food Details Page ===== */
+.homefood-details-page {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== Hero Section (Image Banner) ===== */
+.homefood-hero {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.homefood-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.homefood-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease-in-out;
+}
+
+.back-btn:hover {
+  background: #fff;
+}
+
+/* ===== Favorite Icon ===== */
+.details-heart {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.details-heart:hover {
+  background: #fff;
+}
+
+/* ===== Content Section ===== */
+.details-content {
+  padding: 24px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.details-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #222;
+}
+
+.details-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e63946;
+}
+
+/* Subtitle */
+.details-subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.details-description {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ===== Ratings and Reviews ===== */
+.details-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.details-rating span {
+  background: #ffd166;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ===== Order Button ===== */
+.order-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  background: #ff6b35;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease-in-out;
+}
+
+.order-btn:hover {
+  background: #e85c2a;
+}
+
+/* ===== Responsive Improvements ===== */
+@media (max-width: 768px) {
+  .homefood-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .homefood-image {
+    flex: 0 0 150px;
+    height: 150px;
+  }
+
+  .details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .details-price {
+    font-size: 1.2rem;
+  }
+
+  .details-header h2 {
+    font-size: 1.4rem;
+  }
+}

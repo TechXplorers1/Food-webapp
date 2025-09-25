@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./TopHomeFood.css";
+import { Link } from "react-router-dom";
 
 // Import your images
 import ikoyiImg from "../assets/chickenpiece.png";
@@ -10,6 +12,7 @@ import queenOfShebaImg from "../assets/greenchillichicken.png";
 export default function TopHomeFood() {
   const [favorites, setFavorites] = useState({});
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   // Generate 10 items
   const items = Array.from({ length: 10 }, (_, i) => ({
@@ -24,7 +27,7 @@ export default function TopHomeFood() {
       "Sushi Palace",
       "Pasta Heaven",
       "Taco Fiesta",
-      "Grill Master"
+      "Grill Master",
     ][i % 10],
     subtitle: "Delicious Chinese Dish",
     price: "$" + (Math.floor(Math.random() * 30) + 20),
@@ -45,7 +48,8 @@ export default function TopHomeFood() {
   };
 
   // Toggle favorite status
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (id, e) => {
+    e.stopPropagation(); // Prevent card click navigation when clicking heart
     setFavorites((prev) => ({
       ...prev,
       [id]: !prev[id],
@@ -70,12 +74,19 @@ export default function TopHomeFood() {
     }
   };
 
+  const goToDetails = (item) => {
+  navigate(`/homefooddetails/${item.id}`, {
+    state: { ...item, image: getImage(item.name) },
+  });
+};
+
+
   return (
     <section className="top-home-food-section py-5">
       <div className="container-fluid px-0">
-        {/* Section Header — Title shifted further right, View All in dark orange */}
+        {/* Section Header */}
         <div className="row align-items-center mb-4 mx-0">
-          <div className="col ps-5"> {/* 👈 More padding for right shift */}
+          <div className="col ps-5">
             <h2 className="fw-bold">Top Home Food</h2>
           </div>
           <div className="col-auto">
@@ -132,7 +143,12 @@ export default function TopHomeFood() {
           {/* Scrollable Cards */}
           <div className="card-scroll-content d-flex gap-3 px-3" ref={scrollRef}>
             {items.map((item) => (
-              <div key={item.id} className="card-item flex-shrink-0">
+              <div
+                key={item.id}
+                className="card-item flex-shrink-0"
+                onClick={() => goToDetails(item)} // 👈 Card click navigates
+                style={{ cursor: "pointer" }}
+              >
                 <div className="card-img-container position-relative">
                   {/* Image */}
                   <img
@@ -144,18 +160,18 @@ export default function TopHomeFood() {
                   {/* Overlay */}
                   <div className="overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-                  {/* Heart Icon — OUTLINED BLACK, FILLS RED WHEN FAVORITED */}
+                  {/* Heart Icon */}
                   <div
                     className="heart-icon position-absolute top-0 end-0 m-2"
-                    onClick={() => toggleFavorite(item.id)}
+                    onClick={(e) => toggleFavorite(item.id, e)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
-                      fill={favorites[item.id] ? "#dc3545" : "none"}  // Filled red when favorited
-                      stroke={favorites[item.id] ? "none" : "black"}   // Black outline when not favorited
+                      fill={favorites[item.id] ? "#dc3545" : "none"}
+                      stroke={favorites[item.id] ? "none" : "black"}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -164,23 +180,19 @@ export default function TopHomeFood() {
                     </svg>
                   </div>
 
-                  {/* Title, Subtitle, Price (right-aligned), and Description */}
+                  {/* Title, Subtitle, Price, Description */}
                   <div className="image-content position-absolute bottom-0 start-0 p-3 text-white w-100">
                     <div className="d-flex justify-content-between align-items-start mb-1">
                       <div>
                         <h5 className="card-title fw-bold mb-1">{item.name}</h5>
                         <p className="card-subtitle small mb-0">{item.subtitle}</p>
                       </div>
-                      <div className="price-text fw-bold">
-                        {item.price}
-                      </div>
+                      <div className="price-text fw-bold">{item.price}</div>
                     </div>
                     <p className="card-text small mt-1 mb-0 opacity-90">
                       {item.desc}
                     </p>
                   </div>
-
-                  
                 </div>
               </div>
             ))}

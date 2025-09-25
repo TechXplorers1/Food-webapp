@@ -10,6 +10,8 @@ import dish2 from "../assets/chickenpiece.png";
 import dish3 from "../assets/dish1.png";
 import dish4 from "../assets/chickenpiece.png";
 import logo from "../assets/logo.png";
+import Nonveg from "../assets/Non-veg.png";
+
 
 // Components
 import BecomeAPartner from "../components/BecomeAPartner.jsx";
@@ -64,34 +66,43 @@ export default function RestaurantDetails() {
   };
 
   return (
-    <div className="restaurant-details-page d-flex flex-column min-vh-100">
+    <div className="restaurant-details-page d-flex flex-column min-vh-120">
       {/* Navbar */}
-      <header className="navbar navbar-expand-md navbar-light site-header">
-        <div className="container d-flex justify-content-between align-items-center">
-          <a href="/" className="navbar-brand d-flex align-items-center">
-            <img
-              src={logo}
-              alt="Logo"
-              className="img-fluid"
-              style={{ width: "70px", height: "70px" }}
-            />
-          </a>
+<header className="navbar navbar-expand-md navbar-light site-header">
+  <div className="container d-flex justify-content-between align-items-center">
+    {/* Logo */}
+    <a href="/" className="navbar-brand d-flex align-items-center">
+      <img
+        src={logo}
+        alt="Logo"
+        className="img-fluid"
+        style={{ width: "70px", height: "70px" }}
+      />
+    </a>
 
-          <nav className="d-flex gap-4 fw-medium">
-            <a href="#" className="text-decoration-none nav-link-custom">
-              Restaurant
-            </a>
-            <a href="#" className="text-decoration-none nav-link-custom">
-              Book a Chef
-            </a>
-            <a href="#" className="text-decoration-none nav-link-custom">
-              Become a Partner
-            </a>
-          </nav>
+    {/* Navigation Links - Centered with even spacing */}
+    <nav className="d-flex flex-grow-1 justify-content-evenly mx-3">
+      <a href="#" className="text-decoration-none nav-link-custom">
+        Popular
+      </a>
+      <a href="#" className="text-decoration-none nav-link-custom">
+        Menu
+      </a>
+      <a href="#" className="text-decoration-none nav-link-custom">
+        Gallery
+      </a>
+      <a href="#" className="text-decoration-none nav-link-custom">
+        Orders
+      </a>
+      <a href="#" className="text-decoration-none nav-link-custom">
+        Cart
+      </a>
+    </nav>
 
-          <button className="btn btn-sm">Sign in</button>
-        </div>
-      </header>
+    {/* Sign In Button - Right Aligned */}
+    <button className="btn btn-sm">Sign in</button>
+  </div>
+</header>
 
       {/* ===== Restaurant Header ===== */}
       <div className="restaurant-header">
@@ -164,6 +175,11 @@ export default function RestaurantDetails() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ===== Food Offers Banner ===== */}
+      <div className="full-width-banner">
+        <FoodOffers mode="banner" />
       </div>
 
       {/* ===== Top Popular Items (Horizontal Carousel) ===== */}
@@ -316,16 +332,6 @@ export default function RestaurantDetails() {
         </button>
       </div>
 
-      {/* ===== Food Offers Banner ===== */}
-      <div className="full-width-banner">
-        <FoodOffers mode="banner" />
-      </div>
-
-      {/* ===== Become a Partner ===== */}
-      <div className="container py-4">
-        <BecomeAPartner />
-      </div>
-
       {/* ===== FULL-WIDTH FOOTER ===== */}
       <footer className="footer-ribbon bg-orange text-white py-3 mt-auto">
         <div className="container-fluid px-4">
@@ -344,7 +350,7 @@ export default function RestaurantDetails() {
                   <i className="fab fa-instagram"></i>
                 </a>
                 <a href="#" className="text-white social-icon" aria-label="X (Twitter)">
-                  <i className="fab fa-x-twitter"></i>
+                  <i className="fab fa-x-twitter">X</i>
                 </a>
               </div>
             </div>

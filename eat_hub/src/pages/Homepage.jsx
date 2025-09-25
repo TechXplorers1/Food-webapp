@@ -19,8 +19,9 @@ export default function Homepage() {
   return (
     <div className="homepage-container d-flex flex-column min-vh-100">
       {/* Navbar */}
-      <header className="navbar navbar-expand-md navbar-light bg-orange py-2">
+      <header className="navbar navbar-expand-md navbar-light site-header">
         <div className="container d-flex justify-content-between align-items-center">
+          {/* Logo */}
           <a href="/" className="navbar-brand d-flex align-items-center">
             <img
               src={logo}
@@ -29,15 +30,23 @@ export default function Homepage() {
               style={{ width: "70px", height: "70px" }}
             />
           </a>
-
-          <nav className="d-flex gap-4 fw-medium">
-            <a href="#" className="text-decoration-none nav-link-custom">Restaurant</a>
-            <a href="#" className="text-decoration-none nav-link-custom">Book a Chef</a>
-            <a href="#" className="text-decoration-none nav-link-custom">Become a Partner</a>
+      
+          {/* Navigation Links - Centered with even spacing */}
+          <nav className="d-flex flex-grow-1 justify-content-evenly mx-3">
+            <a href="#" className="text-decoration-none nav-link-custom">
+              Became a Partner
+            </a>
+            <a href="#" className="text-decoration-none nav-link-custom">
+              Restaurant
+            </a>
+            <a href="#" className="text-decoration-none nav-link-custom">
+              Private Chef
+            </a>
+            
           </nav>
-
-
-          <button className="btn  btn-sm">Sign in</button>
+      
+          {/* Sign In Button - Right Aligned */}
+          <button className="btn btn-sm">Sign in</button>
         </div>
       </header>
 

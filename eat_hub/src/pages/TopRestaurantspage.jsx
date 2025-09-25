@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../pages/TopRestaurantspage.css";
 import TopRestaurants from "../Components/TopRestaurants.jsx";
 import FoodOffers from "../Components/FoodOffers.jsx";
-import BecomeAPartner from "../Components/BecomeAPartner.jsx";
 import TopChefs from "../Components/TopChefs";
 
 // Import your assets
@@ -93,19 +92,49 @@ export default function TopRestaurantsPage() {
       {/* ===== Food Offers Banner ===== */}
       <FoodOffers mode="banner" />
 
-      {/* ===== Become a Partner ===== */}
-      <BecomeAPartner />
-
       {/* ===== Top Chefs ===== */}
       <TopChefs />
 
-      {/* ===== Footer ===== */}
-      <footer className="footer-orange text-white py-3">
+       {/* ✅ IMPROVED FOOTER BANNER — STYLED, RESPONSIVE, NON-SCROLLABLE */}
+      <footer className="footer-ribbon bg-orange text-white py-3 mt-auto">
         <div className="container">
-          <p className="mb-0">© 2025 Jollof. All Rights Reserved.</p>
+          <div className="row align-items-center">
+            <div className="col-md-6 text-center text-md-start mb-2 mb-md-0">
+              <p className="mb-0 footer-copyright">
+                &copy; 2025 Afri Bites. All rights reserved.
+              </p>
+            </div>
+            <div className="col-md-6 text-center text-md-end">
+              <div className="social-icons d-flex justify-content-center justify-content-md-end gap-3">
+                <a
+                  href="#"
+                  className="text-white social-icon"
+                  aria-label="Facebook"
+                  title="Follow us on Facebook"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  className="text-white social-icon"
+                  aria-label="Instagram"
+                  title="Follow us on Instagram"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  className="text-white social-icon"
+                  aria-label="X (Twitter)"
+                  title="Follow us on X"
+                >
+                  <i className="fab fa-x-twitter">X</i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
-
     </div>
   );
 }
