@@ -1,233 +1,379 @@
-/* ===== Home Food Header Section ===== */
-.homefood-header {
-  display: flex;
-  align-items: center;       /* Vertically center image + info */
-  gap: 20px;                 /* Spacing between image and card */
-  padding: 20px;
-  max-width: 900px;          /* Keeps content from stretching too wide */
-  margin: 30px auto;         /* Center horizontally */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.btn {
+  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Circular Image */
-.homefood-image {
-  flex: 0 0 200px;           /* Fixed width for circle */
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.homefood-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* Info Card */
-.card-info-box {
-  flex: 1;                   /* Take remaining width */
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  position: relative;
-}
-
-/* Verified Badge */
-.verified-badge-container {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-}
-
-.badge-outline {
-  border: 1px solid #007bff;
-  color: #007bff;
-  font-size: 0.85rem;
-  padding: 4px 10px;
-  border-radius: 8px;
-  background: #f8f9fa;
-}
-
-/* Rating Style */
-.rating-container {
-  font-size: 1rem;
-  color: #333;
-}
-
-.rating-container .fa-star {
-  color: #f4c430;
-  margin-left: 4px;
-}
-
-/* ===== Home Food Details Page ===== */
+/* ===== General Page ===== */
 .homefood-details-page {
   background-color: #fff;
   width: 100%;
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
+  padding: 0 12px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* ===== Hero Section (Image Banner) ===== */
-.homefood-hero {
-  position: relative;
-  width: 100%;
-  height: 320px;
+/* ===== Navbar ===== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  padding: 0 20px;
+}
+
+/* ===== Home Food Header ===== */
+.homefood-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5vh auto;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  gap: 5rem;
+  /* background-color: #fff7e6; */
+}
+
+.homefood-header .homefood-image {
+  width: 330px;
+  height: 330px;
+  flex-shrink: 0;
+  border-radius: 50%;
   overflow: hidden;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  background-color: #fff;
 }
 
-.homefood-hero img {
+.homefood-header .homefood-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.homefood-hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+/* ===== Right Card Box ===== */
+.card-info-box {
+  flex: 0 0 45%;
+  background: white;
+  border: 1.5px solid rgb(236, 54, 54) !important; /* Stronger, visible orange border */
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Back Button ===== */
-.back-btn {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  border-radius: 50%;
-  padding: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background 0.2s ease-in-out;
+.card-info-box h3 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
-.back-btn:hover {
-  background: #fff;
-}
-
-/* ===== Favorite Icon ===== */
-.details-heart {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-  padding: 8px;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-}
-
-.details-heart:hover {
-  background: #fff;
-}
-
-/* ===== Content Section ===== */
-.details-content {
-  padding: 24px;
-}
-
-.details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-
-.details-header h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 0;
-  color: #222;
-}
-
-.details-price {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #e63946;
-}
-
-/* Subtitle */
-.details-subtitle {
+.card-info-box .text-muted {
   font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 12px;
+  color: #6b7280;
 }
 
-/* Description */
-.details-description {
+.card-info-box .fa-star {
   font-size: 1rem;
-  color: #444;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  margin-left: 0.2rem;
+  color: #facc15;
 }
 
-/* ===== Ratings and Reviews ===== */
-.details-rating {
+/* ===== Verified Badge ===== */
+.badge-outline {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  background: #fff;
+  padding: 0.25em 0.6em;
+  border-radius: 50rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ===== About Section ===== */
+.About-section-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: end;
+  margin-top: 10%;
+}
+
+.about-section {
+  background: linear-gradient(135deg, #e94f4f, #e53935);
+  color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 2.5rem;
+  min-height: 350px;
+  width: 90%;
+  margin: 0 auto 2rem auto;
+  position: relative;
+}
+
+
+.about-section h5.about-title {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.about-section p.about-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: white;
+  margin-left: 20px;
+  max-width: 90%;
+}
+
+/* QR Code Desktop */
+.about-section .qr-placeholder {
+  width: 30%;
+  height: 100%;
+  background: #fff;
+  border-radius: 24px;
+  position: absolute;
+  top: -120px;
+  right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+}
+
+.about-section .qr-placeholder .qr-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===== Full Width Banner ===== */
+.full-width-banner {
+  width: 100%;
+}
+
+/* ===== Horizontal Carousel Containers ===== */
+.section-carousel-container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.menu-carousel {
+  scroll-behavior: smooth;
+  padding: 0 44px 0 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Carousel Navigation Buttons ===== */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.details-rating span {
-  background: #ffd166;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-weight: 600;
-  color: #222;
-}
-
-/* ===== Order Button ===== */
-.order-btn {
-  display: inline-block;
-  width: 100%;
-  padding: 14px;
-  background: #ff6b35;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
   cursor: pointer;
-  text-align: center;
-  transition: background 0.2s ease-in-out;
+  transition: all 0.2s ease;
+  border-radius: 50%;
 }
 
-.order-btn:hover {
-  background: #e85c2a;
+.carousel-nav-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.05);
 }
 
-/* ===== Responsive Improvements ===== */
+.carousel-nav-left {
+  left: 0;
+}
+
+.carousel-nav-right {
+  right: 0;
+}
+
+/* ===== Footer ===== */
+.footer-ribbon {
+  background: linear-gradient(135deg, #e94f4f, #e53935);
+  color: white;
+  padding: 1rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.footer-copyright {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  font-size: 1.3rem;
+  color: white !important;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ===== Non Veg Dot & Icons ===== */
+.non-veg-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  margin-top: 0.25rem;
+}
+
+.Non-veg {
+  margin-right: 10px;
+}
+
+.Icons {
+  margin-top: 40px;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .homefood-header {
     flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+    text-align: center;
+    gap: 1.5rem;
   }
 
-  .homefood-image {
-    flex: 0 0 150px;
-    height: 150px;
+  .homefood-header .homefood-image {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
   }
 
-  .details-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  .card-info-box {
+    flex: 1;
+    width: 100%;
   }
 
-  .details-price {
+  .section-carousel-container {
+    width: 95%;
+  }
+
+  .menu-card {
+    height: 320px !important;
+  }
+
+  .carousel-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .footer-ribbon {
+    padding: 0.8rem 0;
+  }
+
+  .footer-copyright {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .social-icons {
+    gap: 1rem;
+    justify-content: center !important;
+  }
+
+  .social-icon {
     font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
   }
 
-  .details-header h2 {
-    font-size: 1.4rem;
+  /* Mobile QR */
+  .about-section {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .about-section p.about-text {
+    margin: 0 auto;
+  }
+
+  .about-section .qr-placeholder {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 160px;
+    height: 160px;
+    margin: 1.5rem auto 0 auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .homefood-header .homefood-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .card-info-box {
+    flex: 0 0 50%;
+  }
+
+  .menu-card {
+    height: 340px !important;
   }
 }

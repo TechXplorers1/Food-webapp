@@ -19,8 +19,6 @@ export default function FoodOffers({ mode = "full" }) {
       {(mode === "grid" || mode === "full") && (
         <>
           {/* Star Item Header */}
-          <h5 className="fw-bold mb-3">star item</h5>
-
           <div className="row g-3 align-items-start">
             {/* Left Column: Queen of Sheba */}
             <div className="col-md-4 col-12">

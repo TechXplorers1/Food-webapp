@@ -11,7 +11,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Homepage.css";
 import TopHomeFood from "../Components/TopHomeFood";
 import TopRestaurants from "../Components/TopRestaurants.jsx";
-import BecomeAPartner from "../Components/BecomeAPartner.jsx";
 import FoodOffers from "../Components/FoodOffers.jsx";
 import TopChefs from "../Components/TopChefs.jsx";
 
@@ -130,7 +129,12 @@ export default function Homepage() {
         <TopHomeFood />
         <TopRestaurants />
         <TopChefs />
-        <FoodOffers mode="grid" />
+        
+        {/* ✅ Food Grid Section with Star Item heading */}
+        <section className="food-grid-section" style={{ backgroundColor:"white"}}>
+          <h2 className="fw-bold Foodgrid">Star Item</h2>
+          <FoodOffers mode="grid" />
+        </section>
       </div>
 
       {/* ✅ IMPROVED FOOTER BANNER — STYLED, RESPONSIVE, NON-SCROLLABLE */}

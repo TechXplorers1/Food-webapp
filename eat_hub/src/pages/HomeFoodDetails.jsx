@@ -11,6 +11,8 @@ import dish3 from "../assets/dish1.png";
 import dish4 from "../assets/chickenpiece.png";
 import logo from "../assets/logo.png";
 import QRCodeGenerator from "../assets/QR_Code_Sample.png";
+import Nonveg from "../assets/Non-veg.png";
+import Cart from "../assets/Cart.png";
 
 // Components
 import FoodOffers from "../components/FoodOffers.jsx";
@@ -168,9 +170,14 @@ export default function HomeFoodDetails() {
                     <div>
                       <h5 className="fw-bold mb-1">{item.name}</h5>
                       <p className="small mb-2">{item.desc}</p>
+                      <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel augue ac nisi viverra suscipit.</p>
                     </div>
                     <div className="text-end">
-                      <span className="fw-bold fs-5">{item.price}</span>
+                      <img src={Nonveg} alt="Non-Veg" style={{ width: "16px", height: "16px" }} className="mb-1  Non-veg" />
+                      <span className="fw-bold fs-5 d-block">{item.price}</span>
+                      <button className="btn btn-sm btn-light rounded-circle mt-1" style={{ width: "32px", height: "32px", padding: "0" }}>
+                        <i className="fas fa-shopping-cart text-dark"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -241,7 +248,11 @@ export default function HomeFoodDetails() {
                       </p>
                     </div>
                     <div className="text-end">
-                      <span className="fw-bold fs-5">{item.price}</span>
+                      <img src={Nonveg} alt="Non-Veg" style={{ width: "16px", height: "16px" }} className="mb-1  Non-veg" />
+                      <span className="fw-bold fs-5 d-block">{item.price}</span>
+                      <button className="btn btn-sm btn-light rounded-circle mt-1" style={{ width: "32px", height: "32px", padding: "0" }}>
+                        <i className="fas fa-shopping-cart text-dark"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -259,6 +270,11 @@ export default function HomeFoodDetails() {
         </button>
       </div>
 
+      <section className="food-grid-section" style={{ backgroundColor:"white"}}>
+              <h2 className="fw-bold Foodgrid" style={{color:"#ff7b00",textAlign:"center"}}>Our Gallery</h2>
+              <FoodOffers mode="grid" />
+          </section>
+
       {/* ===== Footer ===== */}
       <footer className="footer-ribbon bg-orange text-white py-3 mt-auto">
         <div className="container-fluid px-4">
@@ -270,7 +286,7 @@ export default function HomeFoodDetails() {
               <div className="social-icons d-flex justify-content-center justify-content-md-end gap-3">
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
                 <a href="#"><i className="fab fa-instagram"></i></a>
-                <a href="#"><i className="fab fa-x-twitter"></i></a>
+                <a href="#"><i className="fab fa-x-twitter"style={{textDecoration:"none",}}></i>X</a>
               </div>
             </div>
           </div>
